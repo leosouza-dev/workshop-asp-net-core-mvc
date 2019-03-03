@@ -19,6 +19,7 @@ namespace SalesWebMvc.Models
 
         //associação - um vendedor possui um departamento
         public Department Department { get; set; }
+        public int DepartmentId { get; set; }
         //associação - um vendedor possui muitas salesRecord
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 

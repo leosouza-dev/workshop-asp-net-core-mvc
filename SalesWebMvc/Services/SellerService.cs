@@ -1,8 +1,6 @@
 ﻿using SalesWebMvc.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesWebMvc.Services
 {
@@ -25,8 +23,18 @@ namespace SalesWebMvc.Services
         //metodo para inserir um novo vendedor
         public void Insert(Seller seller)
         {
+            var result = from obj in _context.Seller select obj;
+            //result = result.Where(x => x.Name == seller.Name);
+
+            if(result.Any(x => x.Name == seller.Name))
+            {
+                return;
+            }
+
+            seller.Department = _context.Department.First();
             _context.Add(seller);
             _context.SaveChanges();
+            
         }
     }
 }
