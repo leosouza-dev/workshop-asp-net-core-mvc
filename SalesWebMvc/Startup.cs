@@ -47,6 +47,9 @@ namespace SalesWebMvc
 
             // ************************ injeção de dependencia do SellerService.cs
             services.AddScoped<SellerService>();
+
+            // ************************ injeção de dependencia do DepartmentService.cs
+            services.AddScoped<DepartmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
